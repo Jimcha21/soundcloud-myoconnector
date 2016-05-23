@@ -3,7 +3,7 @@ scriptDetailsUrl = "https://market.myo.com/app/55bc8392e4b0a3fcf96f6ab9" --app i
 scriptTitle = "SoundCloud Connector"
 
 enable_Connector=0
-cur_angle=0
+cur_angle=0aaa
 
 function playpause_track()
 	-- body
