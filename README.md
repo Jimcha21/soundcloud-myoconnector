@@ -10,4 +10,4 @@ The connector's code is written in Lua language.
 * Windows or Mac OS
 
 # Licence
-Apache
+Apache 2.0
