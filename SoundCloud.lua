@@ -2,7 +2,7 @@
 scriptTitle = "SoundCloud Connector"
 
 enable_Connector=0
-cur_angle=0aaa
+cur_angle=0
 
 function playpause_track()adsa
 	-- body
@@ -40,7 +40,7 @@ function seek_backward()
 end
 
 function onPoseEdge( pose, edge )
-	
+
     divider0 = PACE_PARAMETER_FOR_SLOWEST_SEEKING
     divider1 = PACE_PARAMETER_FOR_SLOW_SEEKING
     divider2 = PACE_PARAMETER_FOR_ABITFASTER_SEEKING
@@ -67,7 +67,7 @@ function onPoseEdge( pose, edge )
 		end
 
 		if pose=="fist" then
-			
+
 			seekActive= edge == "on";
         	cur_angle=getMyoRollDegrees()
         	if edge=="off" then
@@ -77,11 +77,11 @@ function onPoseEdge( pose, edge )
            	   myo.unlock("hold")
         	end
 		end
-	
+
 
 end
 
-function conditionallySwapWave(pose)   
+function conditionallySwapWave(pose)
     if myo.getArm() == "left" then
         if pose == "waveIn" then
             pose = "waveOut"
@@ -90,7 +90,7 @@ function conditionallySwapWave(pose)
         end
     end
     return pose
-end 
+end
 
 function getMyoRollDegrees()
     local degrees = math.deg(myo.getRoll())
@@ -105,7 +105,7 @@ PACE_PARAMETER_FOR_FAST_SEEKING = 150
 
 function onActiveChange(isActive)
     if not isActive then
-        dif_angle = 0 
+        dif_angle = 0
         divider0 = PACE_PARAMETER_FOR_SLOWEST_SEEKING
         divider1 = PACE_PARAMETER_FOR_SLOW_SEEKING
         divider2 = PACE_PARAMETER_FOR_ABITFASTER_SEEKING
@@ -119,6 +119,12 @@ function onActiveChange(isActive)
     end
 end
 
+function opaa(){
+	a=0
+	b=1
+	c=1
+}
+
 function onPeriodic( )
 	-- body
 	 local time = myo.getTimeMilliseconds()
@@ -126,7 +132,7 @@ function onPeriodic( )
 	if seekActive == true then
 
 		dif_angle=degreeDiff(getMyoRollDegrees(),cur_angle)
-	
+
 		--myo.debug(dif_angle)
 		if dif_angle>0 then --SEEK FOWARD
 			if dif_angle<1.7 then
@@ -176,7 +182,7 @@ function onPeriodic( )
 					seek_backward()
 					--myo.debug("poluxalaro -")
 					--myo.debug(dif_angle)
-				end	
+				end
 			elseif dif_angle>-3.4 then
 				if (time-milisec)/divider6 > 1 then
 					divider6 = divider6 + PACE_PARAMETER_FOR_SLOW_SEEKING
@@ -197,21 +203,21 @@ function onPeriodic( )
 					seek_backward()
 					--myo.debug("piopolu -")
 				--	myo.debug(dif_angle)
-				end	
+				end
 			elseif dif_angle>-8.4 then
 				if (time-milisec)/divider9 > 1 then
 					divider9 = divider9 + PACE_PARAMETER_FOR_FAST_SEEKING
 					seek_backward()
 					--myo.debug("GRIpolu -")
 				--	myo.debug(dif_angle)
-				end	
+				end
 			else
 				seek_backward()
 				--myo.debug("grigoro -")
 			--	myo.debug(dif_angle)
 			end
 		end
-		
+
 	end
 
 end
