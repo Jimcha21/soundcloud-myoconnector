@@ -119,12 +119,6 @@ function onActiveChange(isActive)
     end
 end
 
-function opaa(){
-	a=0
-	b=1
-	c=1
-}
-
 function onPeriodic( )
 	-- body
 	 local time = myo.getTimeMilliseconds()
