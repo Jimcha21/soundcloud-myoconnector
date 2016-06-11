@@ -13,6 +13,7 @@ end
 
 function maceo()
 	a=1
+	b=2
 end
 
 function next_track()
