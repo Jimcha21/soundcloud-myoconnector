@@ -2,13 +2,17 @@
 scriptTitle = "SoundCloud Connector"
 
 enable_Connector=0
-cur_angle=0
+cur_angle=0aaa
 
 function playpause_track()adsa
 	-- body
 	if platform == "Windows" or platform == "MacOS" then
 		myo.keyboard("space", "press")
 	end
+end
+
+function maceo()
+	a=1
 end
 
 function next_track()
