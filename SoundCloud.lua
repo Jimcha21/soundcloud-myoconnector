@@ -11,11 +11,6 @@ function playpause_track()adsa
 	end
 end
 
-function maceo()
-	a=1
-	b=2
-end
-
 function next_track()
 	-- body
 	if platform == "Windows" or platform == "MacOS" then
