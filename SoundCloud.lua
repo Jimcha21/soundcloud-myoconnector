@@ -230,12 +230,7 @@ end
 function onForegroundWindowChange(app, title)
 	--Updated
 	if platform == "Windows" then
-		if string.match(title, "%| Free Listening on SoundCloud") or string.match(title, "%Your stream on SoundCloud") or string.match(title, "%you follow on SoundCloud") or string.match(title, "% - Hear ") or string.match(title, "% by ") and (app == "chrome.exe" or app == "firefox.exe" or app == "iexplore.exe")  then
-			myo.vibrate("short")
-			return true
-		end
-	elseif platform=="MacOS" then
-		if string.match(title, "%| Free Listening on SoundCloud") or string.match(title, "%Your stream on SoundCloud") or string.match(title, "%you follow on SoundCloud") or string.match(title, "% - Hear ") or string.match(title, "% by ") and (app == "com.apple.Safari" or app == "com.google.Chrome" or app == "org.mozilla.firefox") then
+		if string.match(title, "%| Free Listening on SoundCloud") or string.match(title, "%Your stream on SoundCloud") or string.match(title, "%you follow on SoundCloud") or string.match(title, "% - Hear ") or string.match(title, "% by ") and (app == "chrome.exe" or app == "firefox.exe" or app == "iexplore.exe" or app == "com.apple.Safari" or app == "com.google.Chrome" or app == "org.mozilla.firefox") then
 			myo.vibrate("short")
 	        return true
 		end
